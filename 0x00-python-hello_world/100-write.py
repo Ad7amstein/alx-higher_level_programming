@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-import sys, os
+import sys
+import os
 
 data = "and that piece of art is useful - Dora Korpar, 2015-10-19\n"
 data_bytes = data.encode()
