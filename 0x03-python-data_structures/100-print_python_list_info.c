@@ -1,7 +1,7 @@
-#include "Python.h"
+#include <Python.h>
 /**
- * print_python_list_info - frees a listint_t list
- * @p: pointer to list to be freed
+ * print_python_list_info - print list info
+ * @p: pointer to list
  */
 void print_python_list_info(PyObject *p)
 {
