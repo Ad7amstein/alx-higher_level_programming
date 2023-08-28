@@ -6,5 +6,6 @@ def safe_print_integer_err(value):
         print("{:d}".format(value))
         return True
     except (ValueError, TypeError) as err:
-        os.write(sys.stderr.fileno(), f"Exception: {err.args[0]}\n".encode())
+        os.write(sys.stderr.fileno(),\
+                  f"Exception: {err.args[0]}\n".encode())
         return False
