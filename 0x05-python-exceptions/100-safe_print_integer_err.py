@@ -7,5 +7,5 @@ def safe_print_integer_err(value):
         return True
     except (ValueError, TypeError) as err:
         os.write(sys.stderr.fileno(),\
-                  f"Exception: {err.args[0]}\n".encode())
+                  "Exception: {}\n".format(err.args[0]).encode())
         return False
