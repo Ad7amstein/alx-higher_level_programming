@@ -62,6 +62,8 @@ class Square:
         if self.__size == 0:
             return ''
         printable_square = self.__position[1] * '\n' + \
-            self.__size * ((self.__position[0] * ' ') +
-                           (self.__size * '#') + '\n')
+            (self.__size - 1) * ((self.__position[0] * ' ') +
+                                 ((self.__size) * '#') + '\n')
+        printable_square += ((self.__position[0] * ' ') +
+                             ((self.__size) * '#'))
         return printable_square
