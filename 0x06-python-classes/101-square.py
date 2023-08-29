@@ -58,6 +58,8 @@ class Square:
                                  (self.__size * '#') + '\n'), end='')
 
     def __str__(self):
+        if self.__size == 0:
+            return ''
         printable_square = self.__position[1] * '\n' + \
             self.__size * ((self.__position[0] * ' ') +
                            (self.__size * '#') + '\n')
