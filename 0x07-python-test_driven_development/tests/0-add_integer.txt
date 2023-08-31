@@ -101,7 +101,7 @@ Numbers can't be None
 
 ::
 
-	# Test #9: None + integer
+	# Test #10: None + integer
 	>>> add_integer(None, 5)
 	Traceback (most recent call last):
 		...
@@ -109,7 +109,7 @@ Numbers can't be None
 
 ::
 
-	# Test #10: no arguments
+	# Test #11: no arguments
 	>>> add_integer()
 	Traceback (most recent call last):
 		...
@@ -119,6 +119,7 @@ The function will fail if infinity is provided
 
 ::
 
+	Test #12: infinity
 	>>> add_integer(float('inf'))
 	Traceback (most recent call last):
 		...
@@ -129,6 +130,7 @@ The funtion will fail if nan is provided
 
 ::
 
+	Test #13: NaN
 	>>> add_integer(float('nan'))
 	Traceback (most recent call last):
 		...
