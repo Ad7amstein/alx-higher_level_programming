@@ -133,4 +133,3 @@ The funtion will fail if nan is provided
 	Traceback (most recent call last):
 		...
 	ValueError: cannot convert float NaN to integer
-	
