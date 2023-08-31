@@ -75,6 +75,7 @@ If either argument is a non-integer and non-float, a TypeError is raised:
 	# Test #7: integer + string
 	>>> add_integer(4, "School")
 	Traceback (most recent call last):
+		...
 	TypeError: b must be an integer
 
 ::
@@ -82,6 +83,7 @@ If either argument is a non-integer and non-float, a TypeError is raised:
 	# Test #8: string + integer
 	>>> add_integer("adham", 3)
 	Traceback (most recent call last):
+		...
 	TypeError: a must be an integer
 
 If both numbers are non-integer and non-floats, The TypeError message is printed only for the first argument
@@ -91,6 +93,7 @@ If both numbers are non-integer and non-floats, The TypeError message is printed
 	# Test #9: string + string
 	>>> add_integer("adham", "allam")
 	Traceback (most recent call last):
+		...
 	TypeError: a must be an integer
 
 
@@ -101,6 +104,7 @@ Numbers can't be None
 	# Test #9: None + integer
 	>>> add_integer(None, 5)
 	Traceback (most recent call last):
+		...
 	TypeError: a must be an integer
 
 ::
@@ -108,7 +112,8 @@ Numbers can't be None
 	# Test #10: no arguments
 	>>> add_integer()
 	Traceback (most recent call last):
-	TypeError: a must be an integer
+		...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
 
 The function will fail if infinity is provided
 
@@ -116,7 +121,8 @@ The function will fail if infinity is provided
 
 	>>> add_integer(float('inf'))
 	Traceback (most recent call last):
-	OverflowError: cannot convert float infinty to integer
+		...
+	OverflowError: cannot convert float infinity to integer
 
 
 The funtion will fail if nan is provided
@@ -124,6 +130,7 @@ The funtion will fail if nan is provided
 ::
 
 	>>> add_integer(float('nan'))
-	Traceback(most recent call last):
+	Traceback (most recent call last):
+		...
 	ValueError: cannot convert float NaN to integer
 	
