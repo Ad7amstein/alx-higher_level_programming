@@ -32,6 +32,14 @@ Numbers:
     [[0.33, 0.67, 1.0],
     [1.33, 1.67, 2.0]]
 
+The original matrix is left unchanged
+
+::
+
+    # Test #1.1: Print the original matrix
+    >>> matrix
+    [[1, 2, 3], [4, 5, 6]]
+
 Floats are allowed in both matrix and div
 
 ::
@@ -116,7 +124,7 @@ Div must be integer or float, otherwise a TypeError must be raised
     # Test #6: list of lists (int or float) & string ==> Invalid
     >>> matrix = [
     ...    [1, 3],
-    ...    [4, 5, 6],
+    ...    [4, 6],
     ...    [8, 10,]
     ... ]
     >>> matrix_divided(matrix, 'div') # doctest: +NORMALIZE_WHITESPACE
@@ -194,11 +202,35 @@ otherwise a TypeError must be raised
         ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-Matrix cannot be empty
 ::
 
-    # Test #13: empy list of lists (int or float or something else) & integer ==> Invalid
+    # Test #13: empy list & integer ==> Invalid
     >>> matrix = []
+    >>> matrix_divided(matrix, 1) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+    # Test #14: empy list of lists & integer ==> Invalid
+    >>> matrix = [[]]
+    >>> matrix_divided(matrix, 1) # doctest: +NORMALIZE_WHITESPACE
+    [[]]
+
+::
+
+    # Test #15: not a list & integer ==> Invalid
+    >>> matrix = 'adham'
+    >>> matrix_divided(matrix, 1) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+    # Test #16: not a list & integer ==> Invalid
+    >>> matrix = None
     >>> matrix_divided(matrix, 1) # doctest: +NORMALIZE_WHITESPACE
     Traceback (most recent call last):
         ...
