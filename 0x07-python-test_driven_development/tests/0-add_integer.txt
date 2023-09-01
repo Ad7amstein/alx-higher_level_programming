@@ -21,13 +21,13 @@ Numbers:
 ========
 ::
 
-	Test #1: (+)integer + (+)integer
+	Test #1: (+)integer + (+)integer ==> Valid
 	>>> add_integer(1, 2)
 	3
 
 ::
 
-	# Test #2: (+)integer + (-)integer
+	# Test #2: (+)integer + (-)integer ==> Valid
 	>>> add_integer(100, -2)
 	98
 
@@ -35,7 +35,7 @@ The function also works with floating points numbers.
 
 ::
 
-	# Test #3: (+)float + (-)float
+	# Test #3: (+)float + (-)float ==> Valid
 	>>> add_integer(100.0, -2.0)
 	98
 
@@ -43,7 +43,7 @@ The function castes the floats to ints first berfore addition if performed
 
 ::
 
-	# Test #4: (+)float + (+)float
+	# Test #4: (+)float + (+)float ==> Valid
 	>>> add_integer(5.4, 1.9)
 	6
 
@@ -51,7 +51,7 @@ Floating point and integers can be added.
 
 ::
 
-	# Test #5: (+)float + (-)integer
+	# Test #5: (+)float + (-)integer ==> Valid
 	>>> add_integer(100.1, -2)
 	98
 
@@ -59,7 +59,7 @@ The second parameter is optional
 
 ::
 
-	# Test #6: one integer
+	# Test #6: one integer ==> Valid
 	>>> add_integer(2)
 	100
 
@@ -72,7 +72,7 @@ If either argument is a non-integer and non-float, a TypeError is raised:
 
 ::
 
-	# Test #7: integer + string
+	# Test #7: integer + string ==> Invalid
 	>>> add_integer(4, "School")
 	Traceback (most recent call last):
 		...
@@ -80,7 +80,7 @@ If either argument is a non-integer and non-float, a TypeError is raised:
 
 ::
 
-	# Test #8: string + integer
+	# Test #8: string + integer ==> Invalid
 	>>> add_integer("adham", 3)
 	Traceback (most recent call last):
 		...
@@ -90,7 +90,7 @@ If both numbers are non-integer and non-floats, The TypeError message is printed
 
 ::
 
-	# Test #9: string + string
+	# Test #9: string + string ==> Invalid
 	>>> add_integer("adham", "allam")
 	Traceback (most recent call last):
 		...
@@ -101,7 +101,7 @@ Numbers can't be None
 
 ::
 
-	# Test #10: None + integer
+	# Test #10: None + integer ==> Invalid
 	>>> add_integer(None, 5)
 	Traceback (most recent call last):
 		...
@@ -109,7 +109,7 @@ Numbers can't be None
 
 ::
 
-	# Test #11: no arguments
+	# Test #11: no arguments ==> Invalid
 	>>> add_integer()
 	Traceback (most recent call last):
 		...
@@ -119,7 +119,7 @@ The function will fail if infinity is provided
 
 ::
 
-	Test #12: infinity
+	Test #12: infinity ==> Invalid
 	>>> add_integer(float('inf'))
 	Traceback (most recent call last):
 		...
@@ -130,7 +130,7 @@ The funtion will fail if nan is provided
 
 ::
 
-	Test #13: NaN
+	Test #13: NaN ==> Invalid
 	>>> add_integer(float('nan'))
 	Traceback (most recent call last):
 		...
