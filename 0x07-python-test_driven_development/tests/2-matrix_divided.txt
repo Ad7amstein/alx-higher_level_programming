@@ -1,0 +1,205 @@
+===============================
+Tesst for The ``2-matrix_divided`` module
+===============================
+
+This module defines an integer addition function ``matrix_divided(matrix, div)``
+
+
+Using ``matrix_divided``
+---------------------
+``matrix_divided(...)``` returns a new matrix represents the result of dividing
+all the original matrix elements by div. For numbers, 
+that value is equivalent to using the ``\`` operator.
+
+::
+
+First import ``matrix_divided`` from the ``2-matrix_divided`` module
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Now test it:
+
+Numbers:
+========
+
+::
+
+    # Test #1: list of lists (int or float) & (+)integer ==> Valid
+    >>> matrix = [
+    ...    [1, 2, 3],
+    ...    [4, 5, 6]
+    ... ]
+    >>> matrix_divided(matrix, 3) # doctest: +NORMALIZE_WHITESPACE
+    [[0.33, 0.67, 1.0],
+    [1.33, 1.67, 2.0]]
+
+Floats are allowed in both matrix and div
+
+::
+
+    # Test #2: list of lists (int or float) & (-)integer ==> Valid
+    >>> matrix = [
+    ...    [-1, 2.2, 3.0],
+    ...    [4, -6.42, 6]
+    ... ]
+    >>> matrix_divided(matrix, -2) # doctest: +NORMALIZE_WHITESPACE
+    [[0.5, -1.1, -1.5],
+    [-2.0, 3.21, -3.0]]
+
+::
+
+    # Test #3: list of lists (int or float) & float ==> Valid
+    >>> matrix = [
+    ...    [10, 20.2, 35.0],
+    ...    [4, 5.5, 100]
+    ... ]
+    >>> matrix_divided(matrix, 5.5) # doctest: +NORMALIZE_WHITESPACE
+    [[1.82, 3.67, 6.36],
+    [0.73, 1.0, 18.18]]
+    
+Div must not be equql to zero
+::
+
+    # Test #4: list of lists (int or float) & Zero ==> Invalid
+    >>> matrix = [
+    ...    [10, 20.2, 35.0],
+    ...    [4, 5.5, 100]
+    ... ]
+    >>> matrix_divided(matrix, 0) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+Each row of the matrix must be a list
+
+::
+
+    # Test #5: list of integers & 1 ==> Invalid
+    >>> matrix = [1, 2, 3]
+    >>> matrix_divided(matrix, 1) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+    # Test #5: list of lists (int or float) & 3 ==> Valid
+    >>> matrix = [[1], [2], [3]]
+    >>> matrix_divided(matrix, 3) # doctest: +NORMALIZE_WHITESPACE
+    [[0.33], [0.67], [1.0]]
+    
+
+Each row of the matrix must be of the same size
+
+::
+
+    # Test #5: list of lists (int or float) (Not the same size) & 1 ==> Invalid
+    >>> matrix = [
+    ...    [1, 3],
+    ...    [4, 5, 6],
+    ...    [8, 10,]
+    ... ]
+    >>> matrix_divided(matrix, 3) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+
+Non-Numbers:
+========
+``matrix_divided()`` expects that all numbers in arguments
+are either integers or floats. If either number is a non-integer
+and non-float, a TypeError is raised:
+
+Div must be integer or float, otherwise a TypeError must be raised
+
+::
+
+    # Test #6: list of lists (int or float) & string ==> Invalid
+    >>> matrix = [
+    ...    [1, 3],
+    ...    [4, 5, 6],
+    ...    [8, 10,]
+    ... ]
+    >>> matrix_divided(matrix, 'div') # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+::
+
+    # Test #7: list of lists (int or float) & None ==> Invalid
+    >>> matrix = [
+    ...    [1, 2, 3],
+    ...    [4, 5, 6],
+    ...    [8, 10, 12]
+    ... ]
+    >>> matrix_divided(matrix, None) # doctest: +NORMALIZE_WHITESPACE, +REPORT_NDIFF
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+::
+
+    # Test #8: list of lists (int or float) ==> Invalid
+    >>> matrix = [
+    ...    [1, 2, 3],
+    ...    [4, 5, 6],
+    ...    [8, 10, 12]
+    ... ]
+    >>> matrix_divided(matrix) # doctest: +NORMALIZE_WHITESPACE, +REPORT_NDIFF
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+All elements in the list must be integer or float,
+otherwise a TypeError must be raised
+
+::
+
+    # Test #9: list of lists (int or float or something else) & integer ==> Invalid
+    >>> matrix = [
+    ...    'adham',
+    ...    [1, 2, 3],
+    ...    [4, 5, 6],
+    ...    [8, 10, 12]
+    ... ]
+    >>> matrix_divided(matrix, 1) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+    # Test #11: list of lists (int or float or something else) & integer ==> Invalid
+    >>> matrix = [
+    ...    [1, 2, 3],
+    ...    [4, 5, 6],
+    ...    'adham',
+    ...    [8, 10, 12]
+    ... ]
+    >>> matrix_divided(matrix, 1) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+    # Test #12: list of lists (int or float or something else) & integer ==> Invalid
+    >>> matrix = [
+    ...    [1, 2, 'adham'],
+    ...    [4, 5, 6],
+    ...    [8, 10, 12]
+    ... ]
+    >>> matrix_divided(matrix, 1) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Matrix cannot be empty
+::
+
+    # Test #13: empy list of lists (int or float or something else) & integer ==> Invalid
+    >>> matrix = []
+    >>> matrix_divided(matrix, 1) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
