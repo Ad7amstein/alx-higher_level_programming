@@ -1,5 +1,5 @@
 ===============================
-Tesst for The ``add-integer`` module
+Tesst for The ``0-add_integer`` module
 ===============================
 
 This module defines an integer addition function ``add_integers(a,b=98)``
