@@ -2,7 +2,7 @@
 Tesst for The ``4-print_square`` module
 ===============================
 
-This module defines an void function that prints a message
+This module defines a void function that prints a square
 ``print_square(size)``
 
 
