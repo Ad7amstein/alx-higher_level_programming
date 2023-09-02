@@ -1,0 +1,137 @@
+===============================
+Tesst for The ``4-print_square`` module
+===============================
+
+This module defines an void function that prints a message
+``print_square(size)``
+
+
+Using ``print_square``
+---------------------
+``print_square(...)``` Prints a square. for numbers that is integer
+greater than or equal to zero. The parameter ``size`` represents
+the height and width of the square.
+
+::
+
+First import ``print_square`` from the ``4-print_square`` module
+	>>> print_square = __import__('4-print_square').print_square
+
+Now test it:
+
+Numbers:
+========
+
+::
+
+    # Test #1: integer ==> Valid
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+::
+
+    # Test #2: integer ==> Valid
+    >>> print_square(1)
+    #
+
+::
+
+    # Test #3: integer ==> Valid
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+If size is zero don't print anything
+
+::
+
+    # Test #4: integer ==> Valid
+    >>> print_square(0)
+
+Floats are not allowed, the function should raise TypeError
+
+::
+
+    # Test #5: float ==> Invalid
+    >>> print_square(3.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+::
+
+    # Test #6: float ==> Invalid
+    >>> print_square(3.0)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+Size cannot be negative, the function should raise ValueError
+
+::
+
+    # Test #7: (-)integer ==> Invalid
+    >>> print_square(-5)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+TypeError should be raised first
+
+::
+
+    # Test #8: (-)float ==> Invalid
+    >>> print_square(-5.4)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+Non-Numbers:
+============
+``print_square()`` expects that the argument is integer.
+If the number is non-integer, a TypeError is raised:
+
+::
+
+    # Test #9: string ==>Invalid
+    >>> print_square('size')
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+::
+
+    # Test #10: list ==>Invalid
+    >>> print_square([10])
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+::
+
+    # Test #11: None ==>Invalid
+    >>> print_square(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+Size should be provided
+
+::
+
+    # Test #12: no argument ==>Invalid
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
