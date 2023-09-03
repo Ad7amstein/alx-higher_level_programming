@@ -1,0 +1,261 @@
+===============================
+Tesst for The ``100-matrix_mul`` module
+===============================
+
+This module defines an integer addition function ``matrix_mul(m_a, m_b)``
+
+
+Using ``matrix_mul``
+---------------------
+``matrix_mul(...)``` returns a new matrix represents the result of dividing
+all the original matrix elements by div. For numbers, 
+that value is equivalent to using the ``\`` operator.
+
+::
+
+First import ``matrix_mul`` from the ``100-matrix_mul`` module
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Now test it:
+
+Valid Arguments:
+========
+
+Two matrices smae size
+
+::
+
+    >>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+    [[7, 10], [15, 22]]
+
+Floats are allowed
+::
+
+    >>> print(matrix_mul([[1.5, 2.4], [5.2, 3]], [[7, 8.6], [2, 5]]))
+    [[15.3, 24.9], [42.4, 59.72]]
+
+Multiplying a 3x3 matrix by a 3x3 matrix:
+::
+
+    >>> print(matrix_mul([[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+    ... [[9, 8, 7], [6, 5, 4], [3, 2, 1]])) # doctest: +NORMALIZE_WHITESPACE
+    [[30, 24, 18],
+    [84, 69, 54],
+    [138, 114, 90]]
+
+Multiplying a 4x4 matrix by a 4x4 matrix:
+::
+
+    # Test #3: 4*4 & 4*4 ==> Valid (4*4)
+    >>> print(matrix_mul([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12],
+    ... [13, 14, 15, 16]], [[16, 15, 14, 13], [12, 11, 10, 9], [8, 7, 6, 5],
+    ... [4, 3, 2, 1]])) # doctest: +NORMALIZE_WHITESPACE
+    [[80, 70, 60, 50],
+    [240, 214, 188, 162],
+    [400, 358, 316, 274],
+    [560, 502, 444, 386]]
+
+Multiplying a 2x2 matrix by a 2x2 matrix with negative values:
+::
+
+    >>> print(matrix_mul([[-1, -2], [-3, -4]], [[1, 2], [3, 4]]))
+    ... # doctest: +NORMALIZE_WHITESPACE
+    [[-7, -10],
+    [-15, -22]]
+
+Two matrices not the same size
+::
+
+    >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+    ... # doctest: +NORMALIZE_WHITESPACE
+    [[13, 16]]
+
+
+::
+
+    >>> print(matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]]))
+    ... # doctest: +NORMALIZE_WHITESPACE
+    [[58, 64],
+    [139, 154]]
+
+Multiplying a 3x2 matrix by a 2x4 matrix:
+::
+
+    >>> print(matrix_mul([[1, 2], [3, 4], [5, 6]],
+    ... [[7, 8, 9, 10], [11, 12, 13, 14]])) # doctest: +NORMALIZE_WHITESPACE
+    [[29, 32, 35, 38],
+    [65, 72, 79, 86],
+    [101, 112, 123, 134]]
+
+Multiplying a 1x4 matrix by a 4x1 matrix (resulting in a 1x1 matrix):
+::
+
+    >>> print(matrix_mul([[1, 2, 3, 4]], [[5], [6], [7], [8]]))
+    [[70]]
+
+Multiplying a 1x3 matrix by a 3x4 matrix:
+::
+
+    >>> print(matrix_mul([[1, 2, 3]],
+    ... [[4, 5, 6, 7], [8, 9, 10, 11],
+    ... [12, 13, 14, 15]])) # doctest: +NORMALIZE_WHITESPACE
+    [[56, 62, 68, 74]]
+
+Invalid Arguments:
+==================
+The Matrices should be a list First
+::
+
+    >>> matrix_mul("Adham", [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
+
+::
+
+    >>> matrix_mul([[1, 4, 5], [2, 3, 4], [1, 2, 3]], 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list
+
+Check for m_a done first
+::
+
+    >>> matrix_mul({"Adham": [1, 2, 3]}, 4.9)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
+
+The Matrices should be a list of lists.
+::
+
+    >>> matrix_mul(["adham"], ["Hello"])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list of lists
+
+::
+
+    >>> matrix_mul([[1], [2], [3]], [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list of lists
+
+Check for m_a done first
+::
+
+    >>> matrix_mul([[1, 2, 3], 2.3], [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list of lists
+
+The Matrices can not be empty.
+::
+
+    >>> matrix_mul([], [[1, 2, 3], [4, 5, 6]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+::
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_b can't be empty
+
+Check for m_a done first
+::
+
+    >>> matrix_mul([[]], [])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+Each element in m_a and m_b must be integer or float.
+::
+
+    >>> print(matrix_mul([[1, 'not_a_number'], [3, 4]], [[1, 2], [3, 4]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats
+
+::
+
+    >>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, [4]]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b should contain only integers or floats
+
+Check for m_a done first
+::
+
+    >>> print(matrix_mul([[1, 2], ["3", 4]], [[1, "2"], [3, [4]]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats
+
+Each row in m_a and m_b must be the same size.
+::
+
+    >>> print(matrix_mul([[1, 2], [3]],
+    ...  [[1, 2], [3, 4]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
+
+::
+
+    >>> print(matrix_mul([[1, 2], [3, 4]],
+    ...  [[1, 2], [3, 4, 5]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_b must be of the same size
+
+Check for m_a done first
+::
+
+    >>> print(matrix_mul([[], [3, 4]],
+    ...  [[1, 2], []]))
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
+
+The number of columns in m_a should be equal to the number
+of rows in m_b.
+::
+    >>> print(matrix_mul([[1, 2], [3, 4]],
+    ...  [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]))
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied.
+
+::
+    >>> print(matrix_mul([[1, 2, 3], [3, 4, 5]],
+    ...  [[1, 2, 3, 4], [1, 2, 3, 4]]))
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied.
+
+The matrices can not be a None.
+::
+
+    >>> matrix_mul(None, [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
+
+::
+
+    >>> matrix_mul([1, 2, 3], None)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list
+
+Checks for m_a done first
+::
+
+    >>> matrix_mul(None, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
