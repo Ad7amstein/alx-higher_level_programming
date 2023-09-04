@@ -2,13 +2,13 @@
 Tesst for The ``101-lazy_matrix_mul`` module
 ===============================
 
-This module defines an integer addition function ``lazy_matrix_mul(m_a, m_b)``
+This module defines an integer addition function ``lazy_matrix_mul(m_a m_b)``
 
 
 Using ``lazy_matrix_mul``
 ---------------------
 ``lazy_matrix_mul(...)``` returns a new matrix represents the result of dividing
-all the original matrix elements by div. For numbers, 
+all the original matrix elements by div. For numbers 
 that value is equivalent to using the ``\`` operator.
 
 ::
@@ -25,78 +25,78 @@ Two matrices smae size
 
 ::
 
-    >>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
-    [[7, 10], [15, 22]]
+    >>> print(lazy_matrix_mul([[1 2] [3 4]] [[1 2] [3 4]]))
+    [[7 10] [15 22]]
 
 Floats are allowed
 ::
 
-    >>> print(lazy_matrix_mul([[1.5, 2.4], [5.2, 3]], [[7, 8.6], [2, 5]]))
-    [[15.3, 24.9], [42.4, 59.72]]
+    >>> print(lazy_matrix_mul([[1.5 2.4] [5.2 3]] [[7 8.6] [2 5]]))
+    [[15.3 24.9] [42.4 59.72]]
 
 Multiplying a 3x3 matrix by a 3x3 matrix:
 ::
 
-    >>> print(lazy_matrix_mul([[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-    ... [[9, 8, 7], [6, 5, 4], [3, 2, 1]])) # doctest: +NORMALIZE_WHITESPACE
-    [[30, 24, 18],
-    [84, 69, 54],
-    [138, 114, 90]]
+    >>> print(lazy_matrix_mul([[1 2 3] [4 5 6] [7 8 9]]
+    ... [[9 8 7] [6 5 4] [3 2 1]])) # doctest: +NORMALIZE_WHITESPACE
+    [[30 24 18]
+    [84 69 54]
+    [138 114 90]]
 
 Multiplying a 4x4 matrix by a 4x4 matrix:
 ::
 
     # Test #3: 4*4 & 4*4 ==> Valid (4*4)
-    >>> print(lazy_matrix_mul([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12],
-    ... [13, 14, 15, 16]], [[16, 15, 14, 13], [12, 11, 10, 9], [8, 7, 6, 5],
-    ... [4, 3, 2, 1]])) # doctest: +NORMALIZE_WHITESPACE
-    [[80, 70, 60, 50],
-    [240, 214, 188, 162],
-    [400, 358, 316, 274],
-    [560, 502, 444, 386]]
+    >>> print(lazy_matrix_mul([[1 2 3 4] [5 6 7 8] [9 10 11 12]
+    ... [13 14 15 16]] [[16 15 14 13] [12 11 10 9] [8 7 6 5]
+    ... [4 3 2 1]])) # doctest: +NORMALIZE_WHITESPACE
+    [[80 70 60 50]
+    [240 214 188 162]
+    [400 358 316 274]
+    [560 502 444 386]]
 
 Multiplying a 2x2 matrix by a 2x2 matrix with negative values:
 ::
 
-    >>> print(lazy_matrix_mul([[-1, -2], [-3, -4]], [[1, 2], [3, 4]]))
+    >>> print(lazy_matrix_mul([[-1 -2] [-3 -4]] [[1 2] [3 4]]))
     ... # doctest: +NORMALIZE_WHITESPACE
-    [[-7, -10],
-    [-15, -22]]
+    [[-7 -10]
+    [-15 -22]]
 
 Two matrices not the same size
 ::
 
-    >>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+    >>> print(lazy_matrix_mul([[1 2]] [[3 4] [5 6]]))
     ... # doctest: +NORMALIZE_WHITESPACE
-    [[13, 16]]
+    [[13 16]]
 
 
 ::
 
-    >>> print(lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]]))
+    >>> print(lazy_matrix_mul([[1 2 3] [4 5 6]] [[7 8] [9 10] [11 12]]))
     ... # doctest: +NORMALIZE_WHITESPACE
-    [[58, 64],
-    [139, 154]]
+    [[58 64]
+    [139 154]]
 
 Multiplying a 3x2 matrix by a 2x4 matrix:
 ::
 
-    >>> print(lazy_matrix_mul([[1, 2], [3, 4], [5, 6]],
-    ... [[7, 8, 9, 10], [11, 12, 13, 14]])) # doctest: +NORMALIZE_WHITESPACE
-    [[29, 32, 35, 38],
-    [65, 72, 79, 86],
-    [101, 112, 123, 134]]
+    >>> print(lazy_matrix_mul([[1 2] [3 4] [5 6]]
+    ... [[7 8 9 10] [11 12 13 14]])) # doctest: +NORMALIZE_WHITESPACE
+    [[29 32 35 38]
+    [65 72 79 86]
+    [101 112 123 134]]
 
 Multiplying a 1x4 matrix by a 4x1 matrix (resulting in a 1x1 matrix):
 ::
 
-    >>> print(lazy_matrix_mul([[1, 2, 3, 4]], [[5], [6], [7], [8]]))
+    >>> print(lazy_matrix_mul([[1 2 3 4]] [[5] [6] [7] [8]]))
     [[70]]
 
 Multiplying a 1x3 matrix by a 3x4 matrix:
 ::
 
-    >>> print(lazy_matrix_mul([[1, 2, 3]],
-    ... [[4, 5, 6, 7], [8, 9, 10, 11],
-    ... [12, 13, 14, 15]])) # doctest: +NORMALIZE_WHITESPACE
-    [[56, 62, 68, 74]]
+    >>> print(lazy_matrix_mul([[1 2 3]]
+    ... [[4 5 6 7] [8 9 10 11]
+    ... [12 13 14 15]])) # doctest: +NORMALIZE_WHITESPACE
+    [[56 62 68 74]]
