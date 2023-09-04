@@ -55,4 +55,5 @@ class Rectangle:
         """Returns a string representation for the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ''
-        return (self.__height * (self.__width * '#' + '\n'))
+        printable_string = (self.__height * (self.__width * '#' + '\n'))[:-1]
+        return printable_string
