@@ -1,0 +1,19 @@
+===============================
+Tesst for The ``101-lazy_matrix_mul`` module
+===============================
+
+This module defines an integer addition function ``lazy_matrix_mul(m_a, m_b)``
+
+
+Using ``lazy_matrix_mul``
+---------------------
+``lazy_matrix_mul(...)``` returns a new matrix represents the result of dividing
+all the original matrix elements by div. For numbers, 
+that value is equivalent to using the ``\`` operator.
+
+::
+
+First import ``lazy_matrix_mul`` from the ``101-lazy_matrix_mul`` module
+	>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+    
+Now test it:
