@@ -214,3 +214,42 @@ Check for m_a done first
     Traceback (most recent call last):
         ...
     ValueError: setting an array element with a sequence.
+
+The number of columns in m_a should be equal to the number
+of rows in m_b.
+::
+    >>> print(matrix_mul([[1, 2], [3, 4]],
+    ...  [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]))
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied.
+
+::
+    >>> print(matrix_mul([[1, 2, 3], [3, 4, 5]],
+    ...  [[1, 2, 3, 4], [1, 2, 3, 4]]))
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied.
+
+The matrices can not be a None.
+::
+
+    >>> matrix_mul(None, [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
+
+::
+
+    >>> matrix_mul([1, 2, 3], None)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list
+
+Checks for m_a done first
+::
+
+    >>> matrix_mul(None, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
