@@ -115,7 +115,7 @@ The Matrices should be a list First
 
 ::
 
-    >>> matrix_mul([[1, 4, 5], [2, 3, 4], [1, 2, 3]], 4)
+    >>> lazy_matrix_mul([[1, 4, 5], [2, 3, 4], [1, 2, 3]], 4)
     Traceback (most recent call last):
         ...
     ValueError: Scalar operands are not allowed, use '*' instead
@@ -123,7 +123,7 @@ The Matrices should be a list First
 Check for m_a done first
 ::
 
-    >>> matrix_mul({"Adham": [1, 2, 3]}, 4.9)
+    >>> lazy_matrix_mul({"Adham": [1, 2, 3]}, 4.9)
     Traceback (most recent call last):
         ...
     ValueError: Scalar operands are not allowed, use '*' instead
