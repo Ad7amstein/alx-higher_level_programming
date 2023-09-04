@@ -172,14 +172,14 @@ Each element in m_a and m_b must be integer or float.
     >>> print(lazy_matrix_mul([[1, 'not_a_number'], [3, 4]], [[1, 2], [3, 4]]))
     Traceback (most recent call last):
         ...
-    TypeError: m_a should contain only integers or floats
+    TypeError: invalid data type for einsum
 
 ::
 
     >>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, [4]]]))
     Traceback (most recent call last):
         ...
-    TypeError: m_b should contain only integers or floats
+    ValueError: setting an array element with a sequence.
 
 Check for m_a done first
 ::
@@ -187,4 +187,4 @@ Check for m_a done first
     >>> print(lazy_matrix_mul([[1, 2], ["3", 4]], [[1, "2"], [3, [4]]]))
     Traceback (most recent call last):
         ...
-    TypeError: m_a should contain only integers or floats
+    ValueError: setting an array element with a sequence
