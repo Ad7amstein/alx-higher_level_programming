@@ -101,3 +101,13 @@ Multiplying a 1x3 matrix by a 3x4 matrix:
     ... [[4, 5, 6, 7], [8, 9, 10, 11],
     ... [12, 13, 14, 15]])) # doctest: +NORMALIZE_WHITESPACE
     [[56 62 68 74]]
+
+Invalid Arguments:
+==================
+The Matrices should be a list First
+::
+
+    >>> lazy_matrix_mul("Adham", [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
