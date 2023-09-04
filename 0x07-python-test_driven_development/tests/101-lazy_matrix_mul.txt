@@ -126,4 +126,5 @@ Check for m_a done first
     >>> lazy_matrix_mul({"Adham": [1, 2, 3]}, 4.9)
     Traceback (most recent call last):
         ...
-    ValueError: Scalar operands are not allowed, use '*' instead
+    TypeError: Object arrays are not currently supported
+
