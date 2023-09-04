@@ -51,10 +51,10 @@ Multiplying a 4x4 matrix by a 4x4 matrix:
     >>> print(lazy_matrix_mul([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12],
     ... [13, 14, 15, 16]], [[16, 15, 14, 13], [12, 11, 10, 9], [8, 7, 6, 5],
     ... [4, 3, 2, 1]])) # doctest: +NORMALIZE_WHITESPACE
-    [[80 70 60 50]
-    [240 214 188 162]
-    [400 358 316 274]
-    [560 502 444 386]]
+    [[ 80  70  60  50]
+	 [240 214 188 162]
+     [400 358 316 274]
+     [560 502 444 386]]
 
 Multiplying a 2x2 matrix by a 2x2 matrix with negative values:
 ::
