@@ -61,8 +61,8 @@ Multiplying a 2x2 matrix by a 2x2 matrix with negative values:
 
     >>> print(lazy_matrix_mul([[-1, -2], [-3, -4]], [[1, 2], [3, 4]]))
     ... # doctest: +NORMALIZE_WHITESPACE
-    [[-7 -10]
-    [-15 -22]]
+    [[ -7 -10]
+     [-15 -22]]
 
 Two matrices not the same size
 ::
