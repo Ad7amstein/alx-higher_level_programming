@@ -150,3 +150,26 @@ Check for m_a done first
     Traceback (most recent call last):
         ...
     ValueError: setting an array element with a sequence.
+
+The Matrices can not be empty.
+::
+
+    >>> lazy_matrix_mul([], [[1, 2, 3], [4, 5, 6]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+::
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_b can't be empty
+
+Check for m_a done first
+::
+
+    >>> lazy_matrix_mul([[]], [])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
