@@ -84,9 +84,9 @@ Multiplying a 3x2 matrix by a 2x4 matrix:
 
     >>> print(lazy_matrix_mul([[1, 2], [3, 4], [5, 6]],
     ... [[7, 8, 9, 10], [11, 12, 13, 14]])) # doctest: +NORMALIZE_WHITESPACE
-    [[29 32 35 38]
-    [65 72 79 86]
-    [101 112 123 134]]
+    [[ 29  32  35  38]
+	 [ 65  72  79  86]
+     [101 112 123 134]]
 
 Multiplying a 1x4 matrix by a 4x1 matrix (resulting in a 1x1 matrix):
 ::
