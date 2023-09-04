@@ -188,3 +188,29 @@ Check for m_a done first
     Traceback (most recent call last):
         ...
     ValueError: setting an array element with a sequence
+
+Each row in m_a and m_b must be the same size.
+::
+
+    >>> print(lazy_matrix_mul([[1, 2], [3]],
+    ...  [[1, 2], [3, 4]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
+
+::
+
+    >>> print(lazy_matrix_mul([[1, 2], [3, 4]],
+    ...  [[1, 2], [3, 4, 5]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_b must be of the same size
+
+Check for m_a done first
+::
+
+    >>> print(lazy_matrix_mul([[], [3, 4]],
+    ...  [[1, 2], []]))
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
