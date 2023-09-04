@@ -222,14 +222,14 @@ of rows in m_b.
     ...  [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]))
     Traceback (most recent call last):
         ...
-    ValueError: m_a and m_b can't be multiplied.
+    ValueError: shapes (2,2) and (3,4) not aligned: 2 (dim 1) != 3 (dim 0)
 
 ::
     >>> print(lazy_matrix_mul([[1, 2, 3], [3, 4, 5]],
     ...  [[1, 2, 3, 4], [1, 2, 3, 4]]))
     Traceback (most recent call last):
         ...
-    ValueError: m_a and m_b can't be multiplied.
+    ValueError: shapes (2,3) and (2,4) not aligned: 3 (dim 1) != 2 (dim 0)
 
 The matrices can not be a None.
 ::
@@ -237,14 +237,14 @@ The matrices can not be a None.
     >>> lazy_matrix_mul(None, [1, 2, 3])
     Traceback (most recent call last):
         ...
-    TypeError: m_a must be a list
+    TypeError: Object arrays are not currently supported
 
 ::
 
     >>> lazy_matrix_mul([1, 2, 3], None)
     Traceback (most recent call last):
         ...
-    TypeError: m_b must be a list
+    TypeError: Object arrays are not currently supported
 
 Checks for m_a done first
 ::
@@ -252,4 +252,4 @@ Checks for m_a done first
     >>> lazy_matrix_mul(None, None)
     Traceback (most recent call last):
         ...
-    TypeError: m_a must be a list
+    TypeError: Object arrays are not currently supported
