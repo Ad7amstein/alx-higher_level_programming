@@ -26,15 +26,15 @@ Two matrices smae size
 ::
 
     >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]) # doctest: +NORMALIZE_WHITESPACE
-    [[7 10]
-	[15 22]]
+    [[ 7 10]
+	 [15 22]]
 
 Floats are allowed
 ::
 
     >>> print(lazy_matrix_mul([[1.5, 2.4], [5.2, 3]], [[7, 8.6], [2, 5]])) # doctest: +NORMALIZE_WHITESPACE
-    [[15.3 24.9]
-	[42.4 59.72]]
+    [[15.3  24.9]
+	 [42.4 59.72]]
 
 Multiplying a 3x3 matrix by a 3x3 matrix:
 ::
