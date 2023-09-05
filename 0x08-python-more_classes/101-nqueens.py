@@ -8,7 +8,7 @@ solutions = []
 
 def solve(N, grid, ans=[], r=0, c=0, NQueens=0):
     """Function solver to find all possible solutions for N-Queens problem.
-    
+
     Args:
         N (int): Grid size.
         grid ([[]]): The chess board.
@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
     try:
         N = int(sys.argv[1])
-    except:
+    except Exception:
         print("N must be a number")
         sys.exit(1)
 
