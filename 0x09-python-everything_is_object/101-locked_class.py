@@ -11,4 +11,4 @@ class LockedClass:
             super().__setattr__(name, value)
         else:
             raise AttributeError(
-                "'LockedClass' object has no attribute 'last_name'")
+                "'LockedClass' object has no attribute {}".format(name))
