@@ -56,7 +56,7 @@ def matrix_mul(m_a, m_b):
     """The number of columns in m_a should be equal to the number
     of rows in m_b."""
     if len(m_a[0]) != len(m_b):
-        raise ValueError("m_a and m_b can't be multiplied.")
+        raise ValueError("m_a and m_b can't be multiplied")
 
     new_matrix = []
     for i in range(len(m_a)):
