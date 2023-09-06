@@ -7,4 +7,9 @@ class LockedClass:
     Prevents a user from making new attributes that his name is not
     `first_name`"""
 
-    __slots__ = ["first_name"]
+    def __setattr__(self, name, value):
+        """Define how setattr should work."""
+        if name == 'first_name':
+            self.__dict__[name] = value
+        else:
+            print("'LockedClass' object has no attribute '{}'".format(name))
