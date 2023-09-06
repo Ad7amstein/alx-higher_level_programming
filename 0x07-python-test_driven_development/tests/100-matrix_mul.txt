@@ -228,14 +228,14 @@ of rows in m_b.
     ...  [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]))
     Traceback (most recent call last):
         ...
-    ValueError: m_a and m_b can't be multiplied.
+    ValueError: m_a and m_b can't be multiplied
 
 ::
     >>> print(matrix_mul([[1, 2, 3], [3, 4, 5]],
     ...  [[1, 2, 3, 4], [1, 2, 3, 4]]))
     Traceback (most recent call last):
         ...
-    ValueError: m_a and m_b can't be multiplied.
+    ValueError: m_a and m_b can't be multiplied
 
 The matrices can not be a None.
 ::
