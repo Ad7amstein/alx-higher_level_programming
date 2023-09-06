@@ -21,8 +21,8 @@ def matrix_divided(matrix, div):
         not all(isinstance(row, list) for row in matrix) or
         not all(isinstance(num, int) or isinstance(num, float)
                 for num in [num for row in matrix for num in row])):
-        raise TypeError("matrix must be a matrix (list of lists) \
-                        of integers/floats")
+        raise TypeError(
+            "matrix must be a matrix (list of lists) of integers/floats")
 
     row_len = len(matrix[0])
     if (not all(len(row) == row_len for row in matrix)):
