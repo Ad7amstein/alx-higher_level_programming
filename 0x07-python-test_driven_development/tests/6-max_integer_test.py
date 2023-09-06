@@ -9,6 +9,10 @@ class TestMaxInteger(unittest.TestCase):
     """Define unittests for max_integer([..]).
     """
 
+    def test_max_at_beginning(self):
+        """Test max at the beginning."""
+        self.assertAlmostEqual(max_integer([4, 2, 3, 1]), 4)
+
     def test_ordered_list(self):
         """Test an ordered list of integers."""
         self.assertAlmostEqual(max_integer([1, 2, 3, 4]), 4)
