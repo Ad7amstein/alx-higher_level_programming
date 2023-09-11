@@ -10,6 +10,7 @@ class Square(Rectangle):
 
     def __init__(self, size):
         """Initializes the data."""
+        super().__init__(size, size)
+
         self.__size = size
 
-        super().__init__(self.__size, self.__size)
