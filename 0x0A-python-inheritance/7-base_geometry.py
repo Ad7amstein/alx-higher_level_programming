@@ -13,8 +13,8 @@ class BaseGeometry:
         """Validates the value.
 
         Args:
-        name (str): name of the variable
-        value (int): The integer value
+            name (str): name of the variable
+            value (int): The integer value
 
         Raises:
             TypeError: If the value is not integer.
