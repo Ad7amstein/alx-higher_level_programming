@@ -13,6 +13,19 @@ Now test it:
 
 ::
 
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> type(bg)
+    <class '7-base_geometry.BaseGeometry'>
+
+
+::
+
+    >>> bg # doctest: +ELLIPSIS
+    <7-base_geometry.BaseGeometry object at ...>
+
+::
+
     >>> n = __import__('7-base_geometry').__doc__
     >>> len(n) > 1
     True
