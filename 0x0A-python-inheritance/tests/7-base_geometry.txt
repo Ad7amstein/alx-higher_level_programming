@@ -2,11 +2,10 @@
 Tesst for The ``7-base_geometry`` module
 ===============================
 
-This module defines a class MyList that ingerits from list class
+This module defines a class MyList that ingerits list class
 
 ::
 
-First import ``BaseGeometry`` from the ``7-base_geometry`` module
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 Now test it:
