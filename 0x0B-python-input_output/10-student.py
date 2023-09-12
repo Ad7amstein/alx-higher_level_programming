@@ -16,7 +16,7 @@ class Student:
         """Retrieves a dictionary representation of a Student instance."""
         d = dict()
         if (type(attrs) is list
-            and all(type(x) is str for x in attrs)):
+                and all(type(x) is str for x in attrs)):
             for x in attrs:
                 if hasattr(self, x):
                     d[x] = self.__dict__[x]
