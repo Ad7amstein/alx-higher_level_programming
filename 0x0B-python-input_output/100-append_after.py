@@ -15,4 +15,4 @@ def append_after(filename="", search_string="", new_string=""):
             index += 1
 
         MyFile.seek(0)
-        MyFile.write("".join(lines))
+        MyFile.writelines(lines)
