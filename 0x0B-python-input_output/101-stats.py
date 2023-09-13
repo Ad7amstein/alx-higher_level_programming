@@ -33,5 +33,4 @@ if __name__ == "__main__":
 
         counter += 1
 
-    if counter < 10:
-        print_info(total_size, status_codes)
+    print_info(total_size, status_codes)
