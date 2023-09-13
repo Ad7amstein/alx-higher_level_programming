@@ -22,10 +22,13 @@ if __name__ == "__main__":
     total_size = 0
     for line_in in sys.stdin:
         line = line_in.split()
-        total_size += int(line[-1])
-        code = line[-2]
 
-        status_codes[code] += 1
+        try:
+            total_size += int(line[-1])
+            code = line[-2]
+            status_codes[code] += 1
+        except:
+            continue
 
         if counter == 10:
             print_info(total_size, status_codes)
