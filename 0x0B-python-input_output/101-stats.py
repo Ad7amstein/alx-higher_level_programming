@@ -20,8 +20,8 @@ if __name__ == "__main__":
 
     counter = 1
     total_size = 0
-    for l in sys.stdin:
-        line = l.split()
+    for line_in in sys.stdin:
+        line = line_in.split()
         total_size += int(line[-1])
         code = line[-2]
 
