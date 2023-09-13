@@ -27,7 +27,7 @@ if __name__ == "__main__":
             total_size += int(line[-1])
             code = line[-2]
             status_codes[code] += 1
-        except:
+        except Exception:
             continue
 
         if counter == 10:
