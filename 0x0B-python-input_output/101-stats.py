@@ -22,7 +22,7 @@ if __name__ == "__main__":
     total_size = 0
     for l in sys.stdin:
         line = l.split()
-        total_size += line[-1]
+        total_size += int(line[-1])
         code = line[-2]
 
         if hasattr(status_codes, code):
