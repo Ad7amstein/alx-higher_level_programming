@@ -25,8 +25,7 @@ if __name__ == "__main__":
         total_size += int(line[-1])
         code = line[-2]
 
-        if hasattr(status_codes, code):
-            status_codes[code] += 1
+        status_codes[code] += 1
 
         if counter == 10:
             print_info(total_size, status_codes)
