@@ -36,7 +36,7 @@ class Base:
                 list_dictionaries.append(obj)
 
         with open(filename, mode="w", encoding="utf-8") as MyFile:
-            json.dump(cls.to_json_string(list_dictionaries), MyFile)
+            json.dump(list_dictionaries, MyFile)
 
     @staticmethod
     def from_json_string(json_string):
