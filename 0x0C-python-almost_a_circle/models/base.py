@@ -3,6 +3,7 @@
 
 
 import json
+import csv
 
 
 class Base:
@@ -74,3 +75,41 @@ class Base:
             list_instances.append(obj)
 
         return list_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes python objects in csv files."""
+        filename = cls.__name__ + '.csv'
+
+        if list_objs is not None or list_objs != []:
+            list_dicts = [x.to_dictionary() for x in list_objs]
+            header = list_dicts[0].keys()
+
+            with open(filename, 'w', newline='') as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=header)
+                writer.writeheader()
+                writer.writerows(list_dicts)
+
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes python objects in csv files."""
+        filename = cls.__name__ + '.csv'
+        list_inctances = []
+
+        try:
+            with open(filename, newline='') as csvfile:
+                reader = csv.DictReader(csvfile)
+
+                for row in reader:
+                    for key in row.keys():
+                        row[key] = int(row[key])
+                    obj_dict = row.copy()
+                    obj = cls.create(**obj_dict)
+                    list_inctances.append(obj)
+
+                return list_inctances
+        except FileNotFoundError:
+            return []
+
+
