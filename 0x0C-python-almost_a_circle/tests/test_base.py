@@ -9,7 +9,7 @@ from models.base import Base
 class TestBase(unittest.TestCase):
     """Test suits for base module functiosn."""
 
-    def test_pycodestyle():
+    def test_pycodestyle(self):
         """Test that we conform to PEP-8."""
         style = pycodestyle.StyleGuide(quit=True)
-        result = style.check_files('base.py')
+        result = style.check_files(['models/base.py'])
