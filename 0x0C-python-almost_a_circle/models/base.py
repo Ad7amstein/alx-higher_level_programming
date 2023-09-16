@@ -90,7 +90,6 @@ class Base:
                 writer.writeheader()
                 writer.writerows(list_dicts)
 
-
     @classmethod
     def load_from_file_csv(cls):
         """Deserializes python objects in csv files."""
@@ -112,4 +111,31 @@ class Base:
         except FileNotFoundError:
             return []
 
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Opens a window and draws all the Rectangles and Squares."""
+        import turtle
+        drawer = turtle.Turtle()
+        window = turtle.Screen()
+        window.bgcolor('black')
+        drawer.color('white')
+        drawer.speed(2)
+        drawer.penup()
+        drawer.pensize(2)
+        window.title('Shapes drawer :)')
 
+        shapes = list_rectangles[:] + list_squares[:]
+        for shape in shapes:
+            drawer.setheading(0)
+            drawer.goto(shape.x, shape.y)
+            drawer.pendown()
+            drawer.write(shape.id, True, align='center')
+            for i in range(2):
+                drawer.forward(shape.width)
+                drawer.right(90)
+                drawer.forward(shape.height)
+                drawer.right(90)
+            drawer.penup()
+
+        drawer.hideturtle()
+        turtle.exitonclick()
