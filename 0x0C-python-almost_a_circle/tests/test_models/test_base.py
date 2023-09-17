@@ -2,7 +2,7 @@
 """Defines Unittest for base module."""
 
 import unittest
-# import pycodestyle
+import pycodestyle
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -15,7 +15,6 @@ class TestBase(unittest.TestCase):
         """Executes before any test."""
         Base._Base__nb_objects = 0
 
-    @unittest.skip
     def test_pycodestyle(self):
         """Test that we conform to PEP-8."""
         style = pycodestyle.StyleGuide(quit=True)
