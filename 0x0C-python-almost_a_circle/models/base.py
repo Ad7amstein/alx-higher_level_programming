@@ -31,7 +31,7 @@ class Base:
         filename = cls.__name__ + ".json"
         list_dictionaries = []
 
-        if list_objs is not None or list_objs != []:
+        if list_objs is not None and list_objs != []:
             for obj in list_objs:
                 obj = obj.to_dictionary()
                 list_dictionaries.append(obj)
