@@ -15,6 +15,12 @@ class TestBase(unittest.TestCase):
         """Executes before any test."""
         Base._Base__nb_objects = 0
 
+    def test_shebang(self):
+        """Test shebang."""
+        with open('models/base.py', 'r') as file:
+            line = file.readline()
+            self.assertMultiLineEqual(line, '#!/usr/bin/python3\n')
+
     def test_pycodestyle(self):
         """Test that we conform to PEP-8."""
         style = pycodestyle.StyleGuide(quit=True)
