@@ -31,10 +31,11 @@ class Base:
         filename = cls.__name__ + ".json"
         list_dictionaries = []
 
-        if list_objs is not None and list_objs != []:
+        if list_objs is not None and len(list_objs) > 0:
             for obj in list_objs:
                 obj = obj.to_dictionary()
-                list_dictionaries.append(obj)
+                json_dict = json.loads(cls.to_json_string(obj))
+                list_dictionaries.append(json_dict)
 
         with open(filename, mode="w", encoding="utf-8") as MyFile:
             json.dump(list_dictionaries, MyFile)
