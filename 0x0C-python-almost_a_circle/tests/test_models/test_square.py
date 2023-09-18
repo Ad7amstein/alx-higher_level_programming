@@ -99,7 +99,6 @@ class TestSquare(unittest.TestCase):
         self.assertMultiLineEqual(s1.__str__(), '[Square] '
                                   '(89) 0/1 - 7')
 
-
     def test_to_dictionary(self):
         """Test to dictionary method."""
         s1 = Square(10, 2, 1)
