@@ -82,7 +82,7 @@ class Base:
         """Serializes python objects in csv files."""
         filename = cls.__name__ + '.csv'
 
-        if list_objs is not None or list_objs != []:
+        if list_objs is not None and list_objs != []:
             list_dicts = [x.to_dictionary() for x in list_objs]
             header = list_dicts[0].keys()
 
