@@ -2,7 +2,7 @@
 """Defines Unittest for rectangle module."""
 
 import unittest
-# import pycodestyle
+import pycodestyle
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -21,7 +21,6 @@ class TestRectangle(unittest.TestCase):
             line = file.readline()
             self.assertMultiLineEqual(line, '#!/usr/bin/python3\n')
 
-    @unittest.skip
     def test_pycodestyle(self):
         """Test that we conform to PEP-8."""
         style = pycodestyle.StyleGuide(quit=True)
