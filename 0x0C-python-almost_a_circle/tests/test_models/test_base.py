@@ -2,7 +2,7 @@
 """Defines Unittest for base module."""
 
 import unittest
-# import pycodestyle
+import pycodestyle
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -21,7 +21,6 @@ class TestBase(unittest.TestCase):
             line = file.readline()
             self.assertMultiLineEqual(line, '#!/usr/bin/python3\n')
 
-    @unittest.skip
     def test_pycodestyle(self):
         """Test that we conform to PEP-8."""
         style = pycodestyle.StyleGuide(quit=True)
@@ -73,7 +72,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b4.id, 2)
         self.assertEqual(b5.id, 3)
 
-    def test_to_json_string_square(self):
+    def test_to_json_string_rectangle(self):
         """Test to json string."""
         self.assertEqual(Base.to_json_string(None), '[]')
         self.assertEqual(Base.to_json_string([]), '[]')
@@ -95,7 +94,7 @@ class TestBase(unittest.TestCase):
             json_string,
             '[{"id": 1, "size": 10, "x": 2, "y": 8}]')
 
-    def test_from_json_string(self):
+    def test_from_json_string_rectangle(self):
         """Test from json string."""
         self.assertEqual(Base.from_json_string(None), [])
         self.assertEqual(Base.from_json_string([]), [])
@@ -112,7 +111,22 @@ class TestBase(unittest.TestCase):
         self.assertEqual(list_output, list_input)
         self.assertIsNot(list_output, list_input)
 
-    def test_save_to_file(self):
+    def test_from_json_string_square(self):
+        """Test from json string."""
+        list_input = [
+            {'id': 89, 'size': 10},
+            {'id': 7, 'size': 1}
+        ]
+        json_list_input = Square.to_json_string(list_input)
+        list_output = Square.from_json_string(json_list_input)
+        self.assertIsInstance(list_output, list)
+        self.assertEqual(list_output, [
+            {'id': 89, 'size': 10},
+            {'id': 7, 'size': 1}])
+        self.assertEqual(list_output, list_input)
+        self.assertIsNot(list_output, list_input)
+
+    def test_save_to_file_rectangle(self):
         """Test save to file and load from file."""
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
@@ -124,11 +138,23 @@ class TestBase(unittest.TestCase):
                                       '{"id": 2, "width": 2, "height": 4, '
                                       '"x": 0, "y": 0}]')
 
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json", "r") as file:
+    def test_save_to_file_square(self):
+        """Test save to file and load from file."""
+        r1 = Square(10, 2, 8)
+        r2 = Square(2)
+        Square.save_to_file([r1, r2])
+        with open("Square.json", "r") as file:
+            self.assertMultiLineEqual(file.read(),
+                                      '[{"id": 1, "size": 10, '
+                                      '"x": 2, "y": 8}, '
+                                      '{"id": 2, "size": 2, '
+                                      '"x": 0, "y": 0}]')
+
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[]')
-        Rectangle.save_to_file([])
-        with open("Rectangle.json", "r") as file:
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[]')
 
     def test_load_from_file_rectangle(self):
