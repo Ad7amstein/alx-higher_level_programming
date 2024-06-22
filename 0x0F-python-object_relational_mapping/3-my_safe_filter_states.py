@@ -19,7 +19,7 @@ def main():
     cur = db.cursor()
     cur.execute("""SELECT * FROM states
                    WHERE states.name LIKE BINARY ?
-                   ORDER BY states.id""", searched_name)
+                   ORDER BY states.id ASC""", searched_name)
     rows = cur.fetchall()
     for row in rows:
         print(row)
