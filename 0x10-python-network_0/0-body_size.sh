@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # cURL body size
 
 url="$1"
