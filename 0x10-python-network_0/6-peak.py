@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# Find a peak
+"""Find peak
+"""
+
 
 def find_peak(nums=None):
     """Finds a peak in a list of numbers
