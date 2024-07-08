@@ -1,5 +1,3 @@
 #!/bin/bash
 # cURL body size
-
-url="$1"
-curl -sI $url | grep -i "Content-Length" | awk '{print $2}'
+curl -sI "$1" | grep -i "Content-Length" | awk '{print $2}'
