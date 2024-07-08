@@ -1,3 +1,3 @@
 #!/bin/bash
 # Get Request
-curl -sG -L $1
+curl -G -s $1 -L
