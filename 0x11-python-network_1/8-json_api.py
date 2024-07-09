@@ -23,7 +23,9 @@ def main():
             print("No result")
         else:
             print("Not a valid JSON")
-    if not data or len(data) < 1:
+    if req.headers.get('Content-Type') != 'application/json':
+        print("Not a valid JSON")
+    elif not data or len(data) < 1:
         print("No result")
     else:
         print(f"[{data['id']}] {data['name']}")
