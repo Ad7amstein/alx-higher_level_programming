@@ -18,17 +18,16 @@ def main():
     req = requests.post(url, data={'q': val})
     try:
         data = req.json()
-    except (requests.exceptions.JSONDecodeError, ValueError):
-        if req.status_code == 204:
-            print("No result")
-        else:
-            print("Not a valid JSON")
+    except ValueError:
+        print("Not a valid JSON")
+
+
     if req.headers.get('Content-Type') != 'application/json':
         print("Not a valid JSON")
-    elif not data or len(data) < 1:
+    elif not data or len(data) < 1 or data == {}:
         print("No result")
     else:
-        print(f"[{data['id']}] {data['name']}")
+        print(f"[{data.get('id')}] {data.get('name')}")
 
 
 if __name__ == "__main__":
