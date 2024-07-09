@@ -18,7 +18,7 @@ def main():
     req = requests.post(url, data={'q': val})
     try:
         data = req.json()
-    except requests.exceptions.JSONDecodeError:
+    except (requests.exceptions.JSONDecodeError, ValueError):
         if req.status_code == 204:
             print("No result")
         else:
