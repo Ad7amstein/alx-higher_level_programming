@@ -5,7 +5,6 @@ of the repository “rails” by the user “rails”
 
 import sys
 import requests
-import json
 
 
 def main():
