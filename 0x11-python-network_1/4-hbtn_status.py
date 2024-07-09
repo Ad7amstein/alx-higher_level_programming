@@ -5,6 +5,7 @@
 import requests
 
 def main():
+    """Fetches https://alx-intranet.hbtn.io/status"""
     url = "https://alx-intranet.hbtn.io/status"
     req = requests.get(url)
     print("Body response:")
