@@ -4,6 +4,7 @@
 
 import requests
 
+
 def main():
     """Fetches https://alx-intranet.hbtn.io/status"""
     url = "https://alx-intranet.hbtn.io/status"
