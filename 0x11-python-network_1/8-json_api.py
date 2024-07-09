@@ -21,10 +21,7 @@ def main():
     except ValueError:
         print("Not a valid JSON")
 
-
-    if req.headers.get('Content-Type') != 'application/json':
-        print("Not a valid JSON")
-    elif not data or len(data) < 1 or data == {}:
+    if not data or len(data) < 1 or data == {}:
         print("No result")
     else:
         print(f"[{data.get('id')}] {data.get('name')}")
